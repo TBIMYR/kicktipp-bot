@@ -18,15 +18,16 @@ import kicktipp_bot as kb
 
 BONUS_URL = f"{kb.BASE}/{kb.COMMUNITY}/tippabgabe?bonus=true&spieltagIndex=1"
 
-# --- Picks (favoritenbasiert) ------------------------------------------------
+# --- Picks: hier deine Tipps eintragen (Teamnamen exakt wie im Dropdown) ------
+# Leere Werte werden uebersprungen. Mit -v / Dry-Run siehst du, was gesetzt wird.
 GROUP_WINNERS = {
-    "A": "Mexiko", "B": "Schweiz", "C": "Brasilien", "D": "USA",
-    "E": "Deutschland", "F": "Niederlande", "G": "Belgien", "H": "Spanien",
-    "I": "Frankreich", "J": "Argentinien", "K": "Portugal", "L": "England",
+    "A": "", "B": "", "C": "", "D": "",
+    "E": "", "F": "", "G": "", "H": "",
+    "I": "", "J": "", "K": "", "L": "",
 }
-SEMIFINAL = ["Argentinien", "Frankreich", "Spanien", "England"]  # England #4 > Brasilien #6 (FIFA-Rang & Siegquote)
-CHAMPION = "Frankreich"  # Fundamentals: Spanien (Yamal/Williams) angeschlagen, Frankreich offensiv gesünder
-TOPSCORER_TEAM = "Frankreich"
+SEMIFINAL = ["", "", "", ""]   # 4 Teams, die das Halbfinale erreichen
+CHAMPION = ""                  # Weltmeister
+TOPSCORER_TEAM = ""            # Team des Torschuetzenkoenigs
 
 
 def pick_for(question: str, semi_iter) -> str | None:
