@@ -1,0 +1,12 @@
+# Zugangsdaten - NIEMALS committen
+kicktipp.ini
+
+# Persönliche Tipps/Analyse - nicht veröffentlichen
+tipps_*.md
+analyse_*.md
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/

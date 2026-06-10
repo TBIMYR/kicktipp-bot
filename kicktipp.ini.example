@@ -1,0 +1,9 @@
+# Kopiere diese Datei nach  kicktipp.ini  (die ist per .gitignore geschuetzt)
+# und trag deine Daten ein.
+[credentials]
+user = deine-email@example.com
+password = dein-passwort
+
+[game]
+# Name deiner Tipprunde aus der URL: www.kicktipp.de/<community>/tippabgabe
+community = deine-tipprunde
