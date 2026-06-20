@@ -78,6 +78,66 @@ class Match:
 OVERRIDES = {
     # Brasilien ohne Neymar (Wade) & Rodrygo (Kreuzband) im Auftakt; Marokko #7 stark.
     ("Brasilien", "Marokko"): (2, 1),
+    # Kanada Favorit, aber Abwehr geschwaecht (Bombito raus, Davies fraglich) -> knapper.
+    ("Kanada", "Bosnien-Herzegowina"): (2, 1),
+    # --- Spieltag 2 (Auftakte Gruppen E-H) ---
+    # Deutschland 9 Siege in Folge, Curaçao kleinste je qualifizierte Nation -> deutlich.
+    ("Deutschland", "Curaçao"): (3, 0),
+    # Spanien trotz vieler Ausfaelle klar ueberlegen (Quote 1.11).
+    ("Spanien", "Kap Verde"): (3, 0),
+    # Belgien top in Form, aber Aegypten (Salah) trifft -> 2:1 statt 2:0.
+    ("Belgien", "Ägypten"): (2, 1),
+    # Ecuador knapp favorisiert, aber extrem torarm -> 0:1 statt 1:2.
+    ("Elfenbeinküste", "Ecuador"): (0, 1),
+    # NL dezimiert (Simons/de Ligt/Timber raus, Verbruggen fraglich), Japan in Topform
+    # (schlug England) -> Muenzwurf, daher Remis statt knappem NL-Sieg.
+    ("Niederlande", "Japan"): (1, 1),
+    # --- Spieltag 3: Favoriten treffen auf Qualitaetsgegner -> Gegentor einplanen
+    # (Turniermuster bisher: viele Remis, kaum Clean Sheets der Favoriten).
+    ("Frankreich", "Senegal"): (2, 1),   # Senegal (Mane/Sarr) trifft
+    ("England", "Kroatien"): (2, 1),     # Kroatien (Modric) kein Spaziergang
+    ("Argentinien", "Algerien"): (2, 1), # Algeriens Angriff (Mahrez) stark
+    # --- Spieltag 4 ---
+    # Muenzwurf, beide 3 Pkt, Montes (MEX) gesperrt, Korea konterstark -> kein Clean Sheet.
+    ("Mexiko", "Südkorea"): (2, 1),
+    # Schottland sehr torarm (1 Tor MD1), Marokko knapp vorn -> schmaler Sieg ohne SCO-Tor.
+    ("Schottland", "Marokko"): (0, 1),
+    # Beide kamen mit 1:1, Schweiz mit peinlichem Auftakt-Remis -> Bosnien (Dzeko) trifft.
+    ("Schweiz", "Bosnien-Herzegowina"): (2, 1),
+    # --- Spieltag 5 (Gruppen E-H, Runde 2) mit aktueller Form ---
+    # NL dezimiert & nur 2:2 vs Japan, Schweden in Topform (5:1) -> Remis.
+    ("Niederlande", "Schweden"): (1, 1),
+    # Spitzenspiel; DE in Topform (7:1) aber gegen Curacao 1 Gegentor -> Elfenbeinkueste trifft.
+    ("Deutschland", "Elfenbeinküste"): (2, 1),
+    # Belgien wackelig (nur 1:1 vs Aegypten), Iran traf zuletzt 2x -> Iran-Tor einplanen.
+    ("Belgien", "Iran"): (2, 1),
+    # Kap Verde hielt Spanien 0:0 (extrem defensiv, 0 Tore) -> Uruguay grindet schmal.
+    ("Uruguay", "Kap Verde"): (1, 0),
+    # Aegypten (Salah) knapp favorisiert, aber Neuseeland traf 2x vs Iran -> NZ trifft.
+    ("Neuseeland", "Ägypten"): (1, 2),
+    # Top-Duell beide 3 Pkt; Australien traf 2x im Auftakt -> kein US-Clean-Sheet.
+    ("USA", "Australien"): (2, 1),
+    # --- Spieltag 6 (Gruppen I-L, Runde 2) ---
+    # Spitzenspiel; Oesterreich in Form (3:1) trifft.
+    ("Argentinien", "Österreich"): (2, 1),
+    # England firing aber defensiv anfaellig (2 Gegentore vs Kroatien); Ghana trifft.
+    ("England", "Ghana"): (2, 1),
+    # --- Stand 20.06.: SD5/SD6 mit aktueller Form & Verletzungen nachgeschaerft ---
+    # Japan ohne Kubo (Knie), Tunesien (neuer Coach Renard) muss daheim gewinnen
+    # -> Japan-Sieg, aber Tunesien trifft (Turniermuster: kaum Clean Sheets).
+    ("Tunesien", "Japan"): (1, 2),
+    # DR Kongo hielt Portugal 1:1 und hat echte Offensivqualitaet -> kein Clean Sheet.
+    ("Kolumbien", "DR Kongo"): (2, 1),
+    # Algerien (Mahrez/Amoura) Favorit, aber beide muessen gewinnen & Jordanien traf
+    # gegen Oesterreich -> Algerien-Sieg mit Gegentor.
+    ("Jordanien", "Algerien"): (1, 2),
+    # Kroatien (Modric) Favorit, kassierte aber 4 gegen England; Panama war vs Ghana
+    # konkurrenzfaehig -> Kroatien-Sieg, Panama trifft.
+    ("Panama", "Kroatien"): (1, 2),
+    # Pins: bereits gesetzte Tipps festhalten, deren Quote sich verschoben hat,
+    # damit --override sie nicht ungewollt aendert (SD7/SD8, noch nicht analysiert).
+    ("Tschechien", "Mexiko"): (0, 2),
+    ("Türkei", "USA"): (1, 1),
 }
 
 
@@ -143,13 +203,39 @@ def login(session: requests.Session) -> None:
 
 # --- Spiele lesen ------------------------------------------------------------
 
-def fetch_matches(session: requests.Session, verbose: bool = False) -> list[Match]:
+def fetch_spieltag_urls(session: requests.Session) -> list[tuple[str, str]]:
+    """Liest die Spieltag-Navigation und liefert [(Label, URL), ...].
+
+    Nur regulaere Spieltage (kein Bonus). Reihenfolge wie auf der Seite.
+    """
+    url = f"{BASE}/{COMMUNITY}/tippabgabe"
+    soup = BeautifulSoup(session.get(url).text, "html.parser")
+    seen: dict[str, str] = {}
+    out: list[tuple[str, str]] = []
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        if "spieltagIndex=" not in href or "bonus=true" in href:
+            continue
+        label = a.get_text(strip=True)
+        if not label:
+            continue
+        full = BASE + href if href.startswith("/") else href
+        if full in seen:
+            continue
+        seen[full] = label
+        out.append((label, full))
+    return out
+
+
+def fetch_matches(session: requests.Session, verbose: bool = False,
+                  url: str | None = None) -> list[Match]:
     """Liest Spiele + Quoten + Formularfeldnamen von der Tippabgabe-Seite.
 
     >>> Das ist der Teil, der bei HTML-Aenderungen von kicktipp angepasst
         werden muss. Mit -v siehst du, was gefunden wurde. <<<
     """
-    url = f"{BASE}/{COMMUNITY}/tippabgabe"
+    if url is None:
+        url = f"{BASE}/{COMMUNITY}/tippabgabe"
     resp = session.get(url)
     resp.raise_for_status()
     soup = BeautifulSoup(resp.text, "html.parser")
@@ -192,13 +278,20 @@ def fetch_matches(session: requests.Session, verbose: bool = False) -> list[Matc
 # --- Tipps absenden ----------------------------------------------------------
 
 def submit_bets(session: requests.Session, matches: list[Match],
-                override: bool, dry_run: bool, verbose: bool) -> None:
-    url = f"{BASE}/{COMMUNITY}/tippabgabe"
+                override: bool, dry_run: bool, verbose: bool,
+                url: str | None = None) -> int:
+    if url is None:
+        url = f"{BASE}/{COMMUNITY}/tippabgabe"
     form = BeautifulSoup(session.get(url).text, "html.parser").find("form")
     data = _form_fields(form)
 
     placed = 0
     for m in matches:
+        # K.o.-Runden ohne feststehende Teams ueberspringen (z.B. "unbekannt").
+        if "unbekannt" in f"{m.home} {m.away}".lower():
+            if verbose:
+                print(f"{m} -> Teams stehen noch nicht fest (uebersprungen)")
+            continue
         current_home = data.get(m.field_home, "")
         current_away = data.get(m.field_away, "")
         if not override and (current_home or current_away):
@@ -212,10 +305,10 @@ def submit_bets(session: requests.Session, matches: list[Match],
 
     if placed == 0:
         print("Nichts zu tippen.")
-        return
+        return 0
     if dry_run:
         print(f"\nDRY-RUN: {placed} Tipp(s) NICHT abgesendet. Mit --submit echt abgeben.")
-        return
+        return placed
 
     action = (form.get("action") if form else None) or url
     if action.startswith("/"):
@@ -228,6 +321,7 @@ def submit_bets(session: requests.Session, matches: list[Match],
     resp = session.post(action, data=data)
     resp.raise_for_status()
     print(f"\n{placed} Tipp(s) abgesendet.")
+    return placed
 
 
 # --- Helfer ------------------------------------------------------------------
@@ -250,6 +344,8 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Schlanker kicktipp-Tippbot (lokal).")
     ap.add_argument("--submit", action="store_true", help="Tipps wirklich abgeben (sonst Dry-Run).")
     ap.add_argument("--override", action="store_true", help="Auch schon gesetzte Tipps ueberschreiben.")
+    ap.add_argument("--all", action="store_true",
+                    help="Alle Spieltage durchgehen (statt nur dem aktuell angezeigten).")
     ap.add_argument("-v", "--verbose", action="store_true", help="Ausfuehrliche Ausgabe.")
     args = ap.parse_args()
 
@@ -260,12 +356,32 @@ def main() -> None:
     session.headers["User-Agent"] = "Mozilla/5.0 (kicktipp-bot)"
 
     login(session)
-    matches = fetch_matches(session, verbose=args.verbose)
-    if not matches:
-        sys.exit("Keine Spiele mit Tippfeldern gefunden.")
-    print(f"{len(matches)} Spiel(e) gefunden:\n")
-    submit_bets(session, matches, override=args.override,
-                dry_run=not args.submit, verbose=args.verbose)
+
+    if not args.all:
+        matches = fetch_matches(session, verbose=args.verbose)
+        if not matches:
+            sys.exit("Keine Spiele mit Tippfeldern gefunden.")
+        print(f"{len(matches)} Spiel(e) gefunden:\n")
+        submit_bets(session, matches, override=args.override,
+                    dry_run=not args.submit, verbose=args.verbose)
+        return
+
+    # --all: ueber alle Spieltage iterieren. K.o.-Runden ohne feststehende Teams
+    # werden in submit_bets uebersprungen.
+    total = 0
+    for label, url in fetch_spieltag_urls(session):
+        matches = fetch_matches(session, verbose=args.verbose, url=url)
+        tippbar = [m for m in matches if "unbekannt" not in f"{m.home} {m.away}".lower()]
+        if not tippbar:
+            if args.verbose:
+                print(f"=== {label}: keine feststehenden Spiele (uebersprungen) ===")
+            continue
+        print(f"=== {label}: {len(tippbar)} Spiel(e) ===")
+        total += submit_bets(session, matches, override=args.override,
+                             dry_run=not args.submit, verbose=args.verbose, url=url) or 0
+        print()
+    verb = "abgegeben" if args.submit else "im Dry-Run vorbereitet"
+    print(f"Gesamt: {total} Tipp(s) {verb}.")
 
 
 if __name__ == "__main__":
