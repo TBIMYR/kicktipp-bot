@@ -135,9 +135,20 @@ OVERRIDES = {
     # konkurrenzfaehig -> Kroatien-Sieg, Panama trifft.
     ("Panama", "Kroatien"): (1, 2),
     # Pins: bereits gesetzte Tipps festhalten, deren Quote sich verschoben hat,
-    # damit --override sie nicht ungewollt aendert (SD7/SD8, noch nicht analysiert).
-    ("Tschechien", "Mexiko"): (0, 2),
+    # damit --override sie nicht ungewollt aendert (SD8/SD9, noch nicht analysiert).
     ("Türkei", "USA"): (1, 1),
+    ("Ecuador", "Deutschland"): (0, 2),
+    ("Kap Verde", "Saudi-Arabien"): (1, 1),
+    # --- Stand 22.06. ---
+    # Frankreich brennt (3:1 vs Senegal), Irak kassierte 4 vs Norwegen, Quote 1.09
+    # -> klarer Sieg statt knappem 2:0.
+    ("Frankreich", "Irak"): (3, 0),
+    # Finalrunde Gr. C: Raphinha raus, Neymar dosiert, Brasilien reicht ein Remis,
+    # Schottland steht tief -> knapper BRA-Sieg statt 0:2.
+    ("Schottland", "Brasilien"): (0, 1),
+    # Finalrunde Gr. A: Mexiko qualifiziert (0 Gegentore) & rotiert, braucht nur Remis;
+    # Tschechien muss gewinnen -> Remis statt Mexiko-Sieg.
+    ("Tschechien", "Mexiko"): (1, 1),
 }
 
 
