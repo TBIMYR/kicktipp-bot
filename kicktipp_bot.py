@@ -135,10 +135,26 @@ OVERRIDES = {
     # konkurrenzfaehig -> Kroatien-Sieg, Panama trifft.
     ("Panama", "Kroatien"): (1, 2),
     # Pins: bereits gesetzte Tipps festhalten, deren Quote sich verschoben hat,
-    # damit --override sie nicht ungewollt aendert (SD8/SD9, noch nicht analysiert).
+    # damit --override sie nicht ungewollt aendert (noch nicht analysiert).
     ("Türkei", "USA"): (1, 1),
-    ("Ecuador", "Deutschland"): (0, 2),
     ("Kap Verde", "Saudi-Arabien"): (1, 1),
+    ("Japan", "Schweden"): (2, 1),
+    ("DR Kongo", "Usbekistan"): (2, 1),
+    # --- Stand 24.06. (Finalrunden, Quali-Mathe) — knappe Favoritensiege statt
+    # ueberzogener Clean Sheets; bewusst KEINE reinen Remis-Flips. ---
+    # DE qualifiziert & rotiert massiv (Schlotterbeck out), ECU muss gewinnen, aber
+    # 0 Tore in 2 Spielen -> rotiertes DE gewinnt knapp, ECU bleibt torlos.
+    ("Ecuador", "Deutschland"): (0, 1),
+    # Beide durch, Duell um Platz 1; Haaland+Mbappe in Form -> FRA-Sieg ohne Clean Sheet.
+    ("Norwegen", "Frankreich"): (1, 2),
+    # Belgien stumpf (1 Tor in 2, 0:0 vs Iran) aber muss gewinnen; NZ traf beide Male.
+    ("Neuseeland", "Belgien"): (1, 2),
+    # Almiron (PAR) gesperrt; Australien reicht Remis & mauert -> knapper PAR-Sieg.
+    ("Paraguay", "Australien"): (1, 0),
+    # Ghana 0 Gegentore & reicht Remis -> tief & knapp, kein 2-Tore-Vorsprung.
+    ("Kroatien", "Ghana"): (1, 0),
+    # SA muss gewinnen & oeffnet, Korea reicht Remis -> knapper KOR-Sieg statt 0:2.
+    ("Südafrika", "Südkorea"): (0, 1),
     # --- Stand 22.06. ---
     # Frankreich brennt (3:1 vs Senegal), Irak kassierte 4 vs Norwegen, Quote 1.09
     # -> klarer Sieg statt knappem 2:0.
