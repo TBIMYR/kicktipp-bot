@@ -137,9 +137,11 @@ OVERRIDES = {
     # Pins: bereits gesetzte Tipps festhalten, deren Quote sich verschoben hat,
     # damit --override sie nicht ungewollt aendert (noch nicht analysiert).
     ("Türkei", "USA"): (1, 1),
-    ("Kap Verde", "Saudi-Arabien"): (1, 1),
+    # Beide muessen gewinnen -> Remis hilft keinem; knapper CV-Heimsieg statt 1:1.
+    ("Kap Verde", "Saudi-Arabien"): (1, 0),
     ("Japan", "Schweden"): (2, 1),
     ("DR Kongo", "Usbekistan"): (2, 1),
+    ("Kolumbien", "Portugal"): (1, 2),
     # --- Stand 24.06. (Finalrunden, Quali-Mathe) — knappe Favoritensiege statt
     # ueberzogener Clean Sheets; bewusst KEINE reinen Remis-Flips. ---
     # DE qualifiziert & rotiert massiv (Schlotterbeck out), ECU muss gewinnen, aber
