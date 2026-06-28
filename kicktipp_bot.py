@@ -167,6 +167,29 @@ OVERRIDES = {
     # Finalrunde Gr. A: Mexiko qualifiziert (0 Gegentore) & rotiert, braucht nur Remis;
     # Tschechien muss gewinnen -> Remis statt Mexiko-Sieg.
     ("Tschechien", "Mexiko"): (1, 1),
+    # --- Sechzehntelfinale (Stand 28.06.) — 90-Min-Tipps. Schwere Favoriten gegen
+    # harmlose Defensiv-Teams = Clean Sheet (DE/FRA/USA/ARG/ENG ueber Quote = ok);
+    # echte Muenzwuerfe als REMIS (Turnier ist extrem remis-lastig!). ---
+    # Kanada qualitativ besser, aber SA defensiv stabil -> knapper Sieg statt 0:2.
+    ("Südafrika", "Kanada"): (0, 1),
+    # Brasilien ohne Raphinha, Japan ungeschlagen & konterstark -> kein Clean Sheet.
+    ("Brasilien", "Japan"): (2, 1),
+    # Muenzwurf, aber K.o. erlaubt KEIN Remis -> Sieger waehlen: NL ohne Simons/Timber/
+    # de Ligt/Schouten & Koeman nennt sich Underdog -> Marokko (fit, Hakimi) kommt weiter.
+    ("Niederlande", "Marokko"): (1, 2),
+    # Zwei beste Defensiven des Turniers (MEX 0 Gegentore), Azteca+Ruhe -> knapp 1:0.
+    ("Mexiko", "Ecuador"): (1, 0),
+    # Spanien ungeschlagen & klar ueberlegen; Oesterreich leck (3:3 vs Algerien) -> 2:0.
+    ("Spanien", "Österreich"): (2, 0),
+    # Portugal favorisiert, aber Sturm stottert & Kroatien trifft -> 2:1 statt Clean Sheet.
+    ("Portugal", "Kroatien"): (2, 1),
+    # Schweiz Gruppensieger & ausgeglichener; Algerien (Mahrez) trifft -> 2:1 (Wackel).
+    ("Schweiz", "Algerien"): (2, 1),
+    # Muenzwurf, aber K.o. erlaubt KEIN Remis -> Aegypten leichter Favorit (Quote 2.40);
+    # Salah angeschlagen, aber im K.o. wohl geflickt -> Aegypten kommt weiter.
+    ("Australien", "Ägypten"): (1, 2),
+    # Zwei sture Defensiven, Kolumbien torarm (4 Tore, 1 Gegentor) -> knapp 1:0.
+    ("Kolumbien", "Ghana"): (1, 0),
 }
 
 
