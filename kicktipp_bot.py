@@ -190,6 +190,8 @@ OVERRIDES = {
     ("Australien", "Ägypten"): (1, 2),
     # Zwei sture Defensiven, Kolumbien torarm (4 Tore, 1 Gegentor) -> knapp 1:0.
     ("Kolumbien", "Ghana"): (1, 0),
+    # Frankreich klar ueberlegen, aber Schweden hat Isak+Gyoekeres -> kein Clean Sheet.
+    ("Frankreich", "Schweden"): (3, 1),
 }
 
 
