@@ -192,6 +192,16 @@ OVERRIDES = {
     ("Kolumbien", "Ghana"): (1, 0),
     # Frankreich klar ueberlegen, aber Schweden hat Isak+Gyoekeres -> kein Clean Sheet.
     ("Frankreich", "Schweden"): (3, 1),
+    # --- Achtelfinale (Stand 02.07.) — 90-Min-Sieger, KEIN Remis moeglich. ---
+    # Marokko staerker/erfahrener (2022-Halbfinalist), aber Kanada trifft daheim-nah.
+    ("Kanada", "Marokko"): (1, 2),
+    # Brasilien wahrscheinlicher, aber Norwegens Haaland (5 Tore) trifft -> kein Clean Sheet.
+    ("Brasilien", "Norwegen"): (2, 1),
+    # Muenzwurf, torarm: England leicht favorisiert vs Mexikos 0-Gegentor-Abwehr/Azteca.
+    ("Mexiko", "England"): (0, 1),
+    # Muenzwurf (Auto-1:1 im K.o. ungueltig): USA Heimvorteil & Belgien nach 120 Min m
+    # muede; Balogun aber gesperrt -> knapper USA-Sieg (Belgien 1:2 die Alternative).
+    ("USA", "Belgien"): (2, 1),
 }
 
 
