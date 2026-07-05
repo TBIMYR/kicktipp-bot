@@ -197,11 +197,19 @@ OVERRIDES = {
     ("Kanada", "Marokko"): (1, 2),
     # Brasilien wahrscheinlicher, aber Norwegens Haaland (5 Tore) trifft -> kein Clean Sheet.
     ("Brasilien", "Norwegen"): (2, 1),
-    # Muenzwurf, torarm: England leicht favorisiert vs Mexikos 0-Gegentor-Abwehr/Azteca.
-    ("Mexiko", "England"): (0, 1),
+    # Muenzwurf, torarm: England leicht favorisiert, aber Mexiko daheim/Azteca ungeschlagen
+    # -> England-Sieg mit Gegentor statt Clean Sheet.
+    ("Mexiko", "England"): (1, 2),
     # Muenzwurf (Auto-1:1 im K.o. ungueltig): USA Heimvorteil & Belgien nach 120 Min m
     # muede; Balogun aber gesperrt -> knapper USA-Sieg (Belgien 1:2 die Alternative).
     ("USA", "Belgien"): (2, 1),
+    # --- Achtelfinale-Nachzuegler + erstes Viertelfinale (Stand 05.07.) ---
+    # Argentinien klar vorn, aber kassierte 2 vs Kap Verde & Salah trifft -> 2:1.
+    ("Argentinien", "Ägypten"): (2, 1),
+    # Torarmes Duell zweier Defensiven; Kolumbien minimal vorn -> knapp 0:1.
+    ("Schweiz", "Kolumbien"): (0, 1),
+    # QF: Frankreich Favorit, aber Marokko topfit (Hakimi) & in Form -> kein Clean Sheet.
+    ("Frankreich", "Marokko"): (2, 1),
 }
 
 
