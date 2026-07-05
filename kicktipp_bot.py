@@ -195,11 +195,12 @@ OVERRIDES = {
     # --- Achtelfinale (Stand 02.07.) — 90-Min-Sieger, KEIN Remis moeglich. ---
     # Marokko staerker/erfahrener (2022-Halbfinalist), aber Kanada trifft daheim-nah.
     ("Kanada", "Marokko"): (1, 2),
-    # Brasilien wahrscheinlicher, aber Norwegens Haaland (5 Tore) trifft -> kein Clean Sheet.
-    ("Brasilien", "Norwegen"): (2, 1),
-    # Muenzwurf, torarm: England leicht favorisiert, aber Mexiko daheim/Azteca ungeschlagen
-    # -> England-Sieg mit Gegentor statt Clean Sheet.
-    ("Mexiko", "England"): (1, 2),
+    # MUTIGER (Rueckstand aufholen): Norwegen-Upset getippt statt Brasilien-Sieg.
+    # Haaland (5 Tore)+Oedegaard, Brasilien ohne Raphinha/Paqueta, NIE gg. BRA verloren.
+    ("Brasilien", "Norwegen"): (1, 2),
+    # MUTIGER (Rueckstand aufholen): Mexiko-Upset getippt. Azteca+Hoehe, Mexiko im
+    # ganzen Turnier 0 Gegentore, England muede/dezimiert -> Mexiko 1:0 mit Clean Sheet.
+    ("Mexiko", "England"): (1, 0),
     # USA Heimvorteil & Belgien nach 120 Min muede; Balogun-Sperre von FIFA ausgesetzt
     # (05.07., wieder spielberechtigt) -> volle US-Offensive, knapper USA-Sieg 2:1.
     ("USA", "Belgien"): (2, 1),
