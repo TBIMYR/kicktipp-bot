@@ -200,8 +200,8 @@ OVERRIDES = {
     # Muenzwurf, torarm: England leicht favorisiert, aber Mexiko daheim/Azteca ungeschlagen
     # -> England-Sieg mit Gegentor statt Clean Sheet.
     ("Mexiko", "England"): (1, 2),
-    # Muenzwurf (Auto-1:1 im K.o. ungueltig): USA Heimvorteil & Belgien nach 120 Min m
-    # muede; Balogun aber gesperrt -> knapper USA-Sieg (Belgien 1:2 die Alternative).
+    # USA Heimvorteil & Belgien nach 120 Min muede; Balogun-Sperre von FIFA ausgesetzt
+    # (05.07., wieder spielberechtigt) -> volle US-Offensive, knapper USA-Sieg 2:1.
     ("USA", "Belgien"): (2, 1),
     # --- Achtelfinale-Nachzuegler + erstes Viertelfinale (Stand 05.07.) ---
     # Argentinien klar vorn, aber kassierte 2 vs Kap Verde & Salah trifft -> 2:1.
