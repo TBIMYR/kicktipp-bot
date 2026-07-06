@@ -211,6 +211,9 @@ OVERRIDES = {
     ("Schweiz", "Kolumbien"): (0, 1),
     # QF: Frankreich Favorit, aber Marokko topfit (Hakimi) & in Form -> kein Clean Sheet.
     ("Frankreich", "Marokko"): (2, 1),
+    # MUTIGER (Rueckstand): Portugal-Upset. Spanien nur knapp Favorit (1.95, ~48%),
+    # Portugal (Ronaldo/Bruno) schlug sie 2025 in der Nations League -> 2:1.
+    ("Portugal", "Spanien"): (2, 1),
 }
 
 
