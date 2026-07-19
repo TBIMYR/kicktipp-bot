@@ -214,6 +214,11 @@ OVERRIDES = {
     # MUTIGER (Rueckstand): Portugal-Upset. Spanien nur knapp Favorit (1.95, ~48%),
     # Portugal (Ronaldo/Bruno) schlug sie 2025 in der Nations League -> 2:1.
     ("Portugal", "Spanien"): (2, 1),
+    # --- FINALE (Stand 19.07.) — MUTIGER (Rueckstand, letztes Spiel): Argentinien-Upset.
+    # Spanien fundamental leicht favorisiert (nur 1 Gegentor in 7, kontrolliert MF, Quote
+    # 2.25) — aber ein Favoritentipp holt keinen Boden auf. Argentinien (Titelverteidiger,
+    # Messi) gewann ALLE 4 K.o.-Spiele spaet/knapp -> 2:1 Upset differenziert vom Feld.
+    ("Spanien", "Argentinien"): (1, 2),
 }
 
 
